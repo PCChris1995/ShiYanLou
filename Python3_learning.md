@@ -1,1 +1,2 @@
-## Hello!this is to learn how to use git!
+## Hello!this is to learn Python3!
+# Collection
