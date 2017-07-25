@@ -11,10 +11,10 @@ class Person(object):
     def __init__(self, name):
         self.name = name
 
-    def get_grade(self, grade):
+    def get_grade(grade):
         s = Counter(grade).most_common()
         if types  == "teacher":
-            print('A: {}, B: {}, C: {}, D: {}'.format(s['A'],s['B'],s['C'],s['D']))
+            print('{}: {}'.format(s['A'],s['B'],s['C'],s['D']))
         elif types  == "student":
             Pass = s['A'] + s['B'] + s['C']
             Fail = s['D']
