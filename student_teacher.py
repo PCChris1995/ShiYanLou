@@ -15,7 +15,7 @@ class Person(object):
         s = Counter(grade).most_common()
         if types  == "teacher":
             item = ['{}: {}'.format(k, v) for (k, v) in s]
-            return ','.join(item)
+            return ', '.join(item)
         elif types  == "student":
             return 'Pass: {}, Fail: {}'.format(len(grade) - grade.count('D'), grade.count('D') )
 
@@ -30,7 +30,6 @@ class Teacher(Person):
         self.papers = papers
     def get_grade():
         return "{} teaches {}".format(self.name, ','.join(self.papers))
-print('type = {}, grade = {}'.format(sys.argv[1], sys.argv[2]))
 
 kind = Person(types, grade)
 print(kind.get_grade(grade))
