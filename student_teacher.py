@@ -8,17 +8,17 @@ types = sys.argv[1]
 
 class Person(object):
 
-    def __init__(self, name):
+    def __init__(self, name, grade):
         self.name = name
-
-    def get_grade(grade):
+        self.grade = grade
+    def get_grade(self, grade):
         s = Counter(grade).most_common()
         if types  == "teacher":
-            print('{}: {}'.format(s['A'],s['B'],s['C'],s['D']))
+            item = ['{}: {}'.format(k, v) for (k, v) in s]
+            return ','.join(item)
         elif types  == "student":
-            Pass = s['A'] + s['B'] + s['C']
-            Fail = s['D']
-            print('Pass: {}, Fail; {}'.format(Pass, Fail))
+            return 'Pass: {}, Fail: {}'.format(len(grade) - grade.count('D'), grade.count('D') )
+
 class Student(Person):
     def __init__(self, name, branch, year):
         Person.__init__(self, name)
@@ -32,7 +32,8 @@ class Teacher(Person):
         return "{} teaches {}".format(self.name, ','.join(self.papers))
 print('type = {}, grade = {}'.format(sys.argv[1], sys.argv[2]))
 
-print(Person.get_grade(grade))
+kind = Person(types, grade)
+print(kind.get_grade(grade))
 
 
 
