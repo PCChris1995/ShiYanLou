@@ -20,9 +20,21 @@ class Game_field(object):
         self.reset()
 
     def reset(self):
-
+        if self.score > self.highscore:
+            self.score = self.highscore
+        self.score = 0
+        self.field = [[0 for i in range(self.width)] for j in range ]
     def move(self, direction):
 
+    def draw(self, screen):
+
+    def is_win(self):
+
+    def is_gameover(self):
+ 
+    def spawn(self):
+
+    def move_is_possible
 
 def main(stdscr):
 
