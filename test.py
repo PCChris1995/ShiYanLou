@@ -10,7 +10,18 @@ letter_codes = [ord(ch) for ch in 'wasdrqWASDRQ']
 
 action_dict = dict(zip(letter_codes, action * 2))
 
-class game_field(self,):
+class Game_field(object):
+    def _init_(self, height=4, width=4, win = 2048):
+        self.height = height
+        self.width = width
+        self.win_walue = win
+        self.score = 0
+        self.highscore = 0
+        self.reset()
+
+    def reset(self):
+
+    def move(self, direction):
 
 
 def main(stdscr):
@@ -54,16 +65,22 @@ def main(stdscr):
         
         return 'Game'
         
-        state_action = {
+    state_action = {
              'Init': init,
              'Win': lambda: not_game('Win'),
              'Gameover': lambda: not_game('Gameover'),
              'Game': game
             }
 
-                              
-                
+    curses.use_default_colors()
+    game_field = Game_field(win = 32)
 
+    state = 'Init'
+                
+    while state != 'Exit':
+         state = state_actions[state]()
+
+curses.wrapper(main)
 
 
 
