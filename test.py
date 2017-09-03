@@ -25,7 +25,21 @@ class Game_field(object):
         self.score = 0
         self.field = [[0 for i in range(self.width)] for j in range ]
     def move(self, direction):
-
+        def move_row_left(row):
+            def tighten(row):
+                new_row = [for i in range(self.row) if i != 0]
+                new_row += [0 for i in range(len(row) - len(new_row))]
+                return new_row
+        def merge(row):
+            pair = False
+            new_row = []
+            for i in range(len(row)):           
+                if pair:
+                    new_row.append( 2 * row[i] )
+                    self.score += 2*row[i]
+                    pair = False
+                else:
+                    if i + 1 < len() 
     def draw(self, screen):
 
     def is_win(self):
