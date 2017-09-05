@@ -30,21 +30,28 @@ class Game_field(object):
                 new_row = [for i in range(self.row) if i != 0]
                 new_row += [0 for i in range(len(row) - len(new_row))]
                 return new_row
-        def merge(row):
-            pair = False
-            new_row = []
-            for i in range(len(row)):           
-                if pair:
-                    new_row.append( 2 * row[i] )
-                    self.score += 2*row[i]
-                    pair = False
-                else:
-                    if i + 1 < len(row) and row[i] == row[i-1]:
-                        pair = True
-                        new_row.append(0)
+            def merge(row):
+                pair = False
+                new_row = []
+                for i in range(len(row)):           
+                    if pair:
+                        new_row.append( 2 * row[i] )
+                        self.score += 2*row[i]
+                        pair = False
                     else:
-                        new_row.append(row[i])
+                        if i + 1 < len(row) and row[i] == row[i-1]:
+                            pair = True
+                            new_row.append(0)
+                        else:
+                            new_row.append(row[i])
+                assert len(new_row) == len(row)
+                return new_row
+            return tighten(merge(tighten(row)))
 
+        moves = {}
+        moves['Left'] = lambda field
+
+  
 
 
 
