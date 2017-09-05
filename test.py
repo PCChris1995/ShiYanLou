@@ -39,7 +39,17 @@ class Game_field(object):
                     self.score += 2*row[i]
                     pair = False
                 else:
-                    if i + 1 < len() 
+                    if i + 1 < len(row) and row[i] == row[i-1]:
+                        pair = True
+                        new_row.append(0)
+                    else:
+                        new_row.append(row[i])
+
+
+
+
+
+
     def draw(self, screen):
 
     def is_win(self):
