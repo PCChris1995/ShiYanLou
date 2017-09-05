@@ -49,7 +49,11 @@ class Game_field(object):
             return tighten(merge(tighten(row)))
 
         moves = {}
-        moves['Left'] = lambda field
+        moves['Left'] = lambda field:[move_row_left(row) for row in field]
+        moves['Right'] = lambda field:invert(moves['Left'](invert(field)))
+        moves['Up']   = lambda field: transpose(moves['Left'](transpose(field)))
+        moves['Down'] = lambda field: transpose(moves['Right'](transpose(field)))
+
 
   
 
@@ -65,7 +69,7 @@ class Game_field(object):
  
     def spawn(self):
 
-    def move_is_possible
+    def move_is_possible():
 
 def main(stdscr):
 
